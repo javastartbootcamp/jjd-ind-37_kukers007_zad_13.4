@@ -35,9 +35,7 @@ public class CustomList<T> {
         if (size == customs.length) {
             increaseCapacity();
         }
-        for (int i = size - 1; i >= index; i--) {
-            customs[i + 1] = customs[i];
-        }
+        System.arraycopy(customs, index, customs, index + 1, size - index);
         customs[index] = element;
         size++;
     }
@@ -58,6 +56,7 @@ public class CustomList<T> {
 
     private void increaseCapacity() {
         Object[] newElements = Arrays.copyOf(customs, customs.length * 2);
+        customs = newElements;
     }
 
     @Override
