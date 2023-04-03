@@ -58,6 +58,7 @@ public class CustomList<T> {
 
     private void increaseCapacity() {
         Object[] newElements = Arrays.copyOf(customs, customs.length * 2);
+        customs = newElements;
     }
 
     @Override
